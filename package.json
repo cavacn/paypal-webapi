@@ -1,0 +1,15 @@
+{
+  "name": "paypal-webapp",
+  "version": "0.0.1",
+  "description": "paypal,web api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "paypal"
+  ],
+  "author": "admin@cavacn.com",
+  "license": "ISC",
+  README:"README.md"
+}
