@@ -12,3 +12,6 @@ How to use
 	paypal.init(clientid,secret);
 	paypal.createPayment(data,cb);//创建订单
 	paypal.checkPayment(data,cb);//check订单
+
+---
+	only 4 linux
