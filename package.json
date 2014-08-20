@@ -1,15 +1,26 @@
 {
-  "name": "paypal-webapp",
-  "version": "0.0.1",
-  "description": "paypal,web api",
+  "name": "paypal-webapi",
+  "version": "0.0.4",
+  "description": "README.md",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cavacn/paypal-webapi.git"
+  },
   "keywords": [
-    "paypal"
+    "paypal",
+    "nodejs",
+    "rest",
+    "apis"
   ],
   "author": "admin@cavacn.com",
   "license": "ISC",
-  README:"README.md"
+  "bugs": {
+    "url": "https://github.com/cavacn/paypal-webapi/issues"
+  },
+  "homepage": "https://github.com/cavacn/paypal-webapi",
+  "readmeFilename":"README.md"
 }
