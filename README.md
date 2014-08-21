@@ -15,3 +15,23 @@ How to use
 
 ---
 	only 4 linux
+流程图
+---
+	Client		Your Server					Paypal Server
+		|			|							|
+		|			|---- getAccessToken------->|
+		|			|							|
+		|			|<----------accessToken-----|
+		|--buy----->|							|
+		|			|-------createPayment------>|
+		|			|							|
+		|			|<------returPaymentinfo----|
+		|<--payuri--|							|
+		|			|							|
+		|------------deal the payment---------->|
+		|			|							|
+		|			|<--------payment orderid---|
+		|			|							|
+		|			|-------check payment------>|
+		|			|							|
+		|			|<------payment info -------|

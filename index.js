@@ -1,6 +1,7 @@
 var curl = require("curl-linux");
-var Paypal = function(){
-	
+var Paypal = function(returnurl,cancelurl){
+	this.cancelUrl = cancelurl||"http://www.cavacn.com/paypal?cancel=true";
+	this.returnUrl = returnurl||"http://www.cavacn.com/paypal?return=true";
 }
 
 Paypal.prototype.init = function(client_id,secret,isdebug){
@@ -8,8 +9,7 @@ Paypal.prototype.init = function(client_id,secret,isdebug){
 	this.secret = secret;
 	this.access = null;
 	this.lastTime = new Date();
-	this.cancelUrl = "http://www.cavacn.com/paypal?cancel=true";
-	this.returnUrl = "http://www.cavacn.com/paypal?return=true";
+	
 	this.paypalDomain = !isdebug?"https://api.sandbox.paypal.com/":"https://api.paypal.com/";
 	console.log(this);
 }
@@ -68,9 +68,6 @@ Paypal.prototype.createPayment = function(data,cb){
 							"-d",JSON.stringify(order)
 								
 						],function(err,payment){
-							/*
-								null '{"id":"PAY-0E572602SS804515BKP2E46A","create_time":"2014-08-20T07:30:00Z","update_time":"2014-08-20T07:30:00Z","state":"created","intent":"sale","payer":{"payment_method":"paypal","payer_info":{"shipping_address":{}}},"transactions":[{"amount":{"total":"10.00","currency":"USD","details":{"subtotal":"10.00"}},"des.comtion":"测试订单1408519795199"}],"links":[{"href":"ttps://api.sandbox.paypal/v1/payments/payment/PAY-0E572602SS804515BKP2E46A","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-6U355871J46019300","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-0E572602SS804515BKP2E46A/execute","rel":"execute","method":"POST"}]}'
-							*/
 							cb(err,payment);
 				});
 				
@@ -112,4 +109,10 @@ Paypal.prototype.checkPayment = function(data,cb){
 }
 
 module.exports = exports = Paypal;
+
+var p = new Paypal();
+p.init("AZp54BDoSGc5eQaiv-B4TGkjJ5gK99dxLgObCf7WnETT6EDmasSsn4ig3dki","EAbrBxB0GxUdRckxUDYXe8lRRu0cHI3juxTQmXsUH47-t5XzT1GcS7sfL_gZ");
+
+p.createPayment({})
+
 
