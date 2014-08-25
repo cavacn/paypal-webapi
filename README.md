@@ -10,6 +10,7 @@ How to use
 	var Paypal = require("paypal-webapp");
 	var paypal = new Paypal();
 	paypal.init(clientid,secret);
+	//{total:10,currency:"USD",detail:"megeg"}
 	paypal.createPayment(data,cb);//创建订单
 	paypal.checkPayment(data,cb);//check订单
 Notices

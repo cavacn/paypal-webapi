@@ -46,7 +46,7 @@ Paypal.prototype.getAccessToken = function(cb){
 Paypal.prototype.createPayment = function(data,cb){
 	
 	var _this = this;
-	var order = {"intent":"sale","redirect_urls":{"return_url":this.returnUrl,"cancel_url":this.cancelUrl},"payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":data.total,"currency":data.currency,extData:data.extData},"description":data.detail}]};
+	var order = {"intent":"sale","redirect_urls":{"return_url":this.returnUrl,"cancel_url":this.cancelUrl},"payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":data.total,"currency":data.currency},"description":data.detail}]};
 
 	this.getAccessToken(function(err,access){
 	
@@ -110,9 +110,9 @@ Paypal.prototype.checkPayment = function(data,cb){
 
 module.exports = exports = Paypal;
 
-var p = new Paypal();
-p.init("AZp54BDoSGc5eQaiv-B4TGkjJ5gK99dxLgObCf7WnETT6EDmasSsn4ig3dki","EAbrBxB0GxUdRckxUDYXe8lRRu0cHI3juxTQmXsUH47-t5XzT1GcS7sfL_gZ");
+// var p = new Paypal();
+// p.init("AZp54BDoSGc5eQaiv-B4TGkjJ5gK99dxLgObCf7WnETT6EDmasSsn4ig3dki","EAbrBxB0GxUdRckxUDYXe8lRRu0cHI3juxTQmXsUH47-t5XzT1GcS7sfL_gZ");
 
-p.createPayment({})
+// p.createPayment({})
 
 
