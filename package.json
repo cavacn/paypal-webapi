@@ -1,6 +1,6 @@
 {
   "name": "paypal-webapi",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "README.md",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,5 @@
     "url": "https://github.com/cavacn/paypal-webapi/issues"
   },
   "homepage": "https://github.com/cavacn/paypal-webapi",
-  "readMeFile":"README.md"
+  "readMeFile": "README.md"
 }

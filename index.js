@@ -86,17 +86,24 @@ Paypal.prototype.checkPayment = function(data,cb){
 			cb(err);
 		}else{
 			if(!!access){
-				var _d = {"payer_id":data.PayerID}
-				curl( [
+				
+				
+				var array = [
 					"-v",
-						_this,paypalDomain+"v1/payments/payment/"+data.paymentid+"/execute",
+						_this.paypalDomain+"v1/payments/payment/"+data.paymentid+(!!data.PayerID?"/execute":""),
 					"-H",
 						"Content-Type:application/json",
 					"-H",
-						"Authorization:Bearer "+access.access_token,
-					"-d",
-						JSON.stringify(_d)
-				],function(err,msg){
+						"Authorization:Bearer "+access.access_token
+				];
+				
+				if(data.PayerID){
+					var _d = {"payer_id":data.PayerID};
+					array.push("-d");
+					array.push(JSON.stringify(_d));
+				}
+				
+				curl(array ,function(err,msg){
 					cb(err,msg);
 				})
 			}else{
